@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_films
+    description: "Silver layer for films"
+    columns:
+      - name: film_id
+        description: "Unique identifier for the film"
+        tests:
+          - unique
+          - not_null
+      - name: rating
+        description: "Film rating"
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['PG', 'PG-13', 'R', 'NC-17', 'G']
